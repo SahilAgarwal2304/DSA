@@ -67,7 +67,8 @@ int main() {
     cin >> n;
     vector<int> arr = accept(n);
     char flag = 'y';
-    do {
+
+    while (flag == 'y' || flag == 'Y') {
         cout << "Current array: ";
         printArray(arr);
         cout << "Choose an operation: " << endl;
@@ -75,6 +76,7 @@ int main() {
         cout << "2. Find an element" << endl;
         cout << "3. Print array" << endl;
         cout << "4. Exit" << endl;
+
         int choice;
         cin >> choice;
         switch (choice) {
@@ -89,14 +91,16 @@ int main() {
                 break;
             case 4:
                 flag = 'n';
-                break;
+                continue;
             default:
                 cout << "Invalid choice! Please try again." << endl;
         }
+
         if (flag != 'n') {
             cout << "Do you want to continue? (y/n): ";
             cin >> flag;
         }
-    } while (flag == 'y' || flag == 'Y');
+    }
+
     return 0;
 }
